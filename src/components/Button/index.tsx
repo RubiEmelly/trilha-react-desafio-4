@@ -1,8 +1,13 @@
-import { ButtonContainer } from "./styles";
-import { IButtonProps } from "./types";
+import React from 'react';
+import { IButtonProps } from './types';
+import { ButtonContainer } from './styles'; // Certifique-se de importar o styled-component
 
-const Button = ({ title, onClick }: IButtonProps) => {
-  return <ButtonContainer onClick={onClick}>{title}</ButtonContainer>;
+const Button: React.FC<IButtonProps> = ({ title, disabled, onClick, ...rest }) => {
+  return (
+    <ButtonContainer disabled={disabled} onClick={onClick} {...rest}>
+      {title}
+    </ButtonContainer>
+  );
 };
 
 export default Button;
